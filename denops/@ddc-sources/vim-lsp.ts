@@ -29,7 +29,7 @@ export class Source extends BaseSource<Params> {
 
     const [items] = await Promise.all([
       args.onCallback(id) as Promise<Candidate[]>,
-      ...lspservers.map(lspserver => args.denops.call("ddc_vim_lsp#request", lspserver, id))
+      ...lspservers.map(lspserver => args.denops.call("ddc_vim_lsp#request", lspserver, id)),
     ]);
     return items;
   }
